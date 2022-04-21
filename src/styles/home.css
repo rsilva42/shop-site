@@ -1,0 +1,13 @@
+.home h1 {
+    padding: 10px;
+}
+
+.home p {
+    padding: 0px 17%;
+}
+
+.home a {
+    display: block;
+    padding: 10px 0px;
+    text-decoration: underline;
+}
