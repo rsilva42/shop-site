@@ -8,11 +8,11 @@
 
     flex: auto;
     padding: 10px;
-    border-bottom: solid 1px white;
+    border-bottom: solid 1px rgb(245, 245, 245);
 }
 
 .navbar a +  a {
-    border-left: solid 1px white;
+    border-left: solid 1px rgb(245, 245, 245);
 }
 
 .navbar a:hover {
