@@ -16,6 +16,10 @@ code {
     monospace;
 }
 
+h1 {
+  padding: 10px;
+}
+
 a {
   color: white;
   text-decoration: none;

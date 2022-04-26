@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import Home from './components/Home';
 import Navbar from './components/Navbar';
@@ -25,8 +25,8 @@ export default function Router() {
       <Navbar cart={cart} setCart={setCart} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop cart={cart} setCart={setCart} items={itemsData} />} />
-        <Route path="/shop/:itemId" element={<ItemPage items={itemsData} />} />
+        <Route path="/shop" element={<Shop items={itemsData} />} />
+        <Route path="/shop/:itemId" element={<ItemPage items={itemsData} cart={cart} setCart={setCart} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
       </Routes>

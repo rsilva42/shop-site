@@ -1,5 +1,4 @@
 .item-page {
-    width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,5 +6,21 @@
 }
 
 .item-page img {
-    max-width: 50%;
+    max-width: 20%;
+}
+
+.item-info {
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.item-info h2 {
+    margin: 0;
+    border-bottom: 1px solid white;
+}
+
+.item-info p {
+    margin-top: 0;
 }

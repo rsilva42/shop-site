@@ -1,0 +1,13 @@
+.item-adder {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-adder select {
+    display: block;
+}
+
+.item-adder input {
+    display: block;
+}

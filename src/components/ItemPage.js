@@ -1,19 +1,22 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/item-page.css';
+import ItemAdder from './ItemAdder';
 
 export default function ItemPage(props) {
   const params = useParams();
 
-  // figure out why props are not read from storage on refresh
-  // may need to useEffect or some hook to have it pull state info properly
-  const item = props.items.find((i) => i.id == +params.itemId);
+  let item = props.items.find((i) => i.id === +params.itemId);
+
+  if (!item) item = { id: 0, name: "", image: "", price: 0, categories: []};
 
   return (
     <div className='item-page'>
-      <img src={item.image}/>
-      <div>
-        <h1>{item.name}</h1>
+      <img src={item.image} alt={item.name}/>
+      <div className='item-info'>
+        <h2>{item.name}</h2>
+        <p>${item.price}</p>
+        <ItemAdder id={+params.itemId} cart={props.cart} setCart={props.setCart}/>
       </div>
     </div>
   );
