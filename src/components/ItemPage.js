@@ -16,7 +16,7 @@ export default function ItemPage(props) {
       <div className='item-info'>
         <h2>{item.name}</h2>
         <p>${item.price}</p>
-        <ItemAdder id={+params.itemId} cart={props.cart} setCart={props.setCart}/>
+        <ItemAdder item={item} cart={props.cart} setCart={props.setCart}/>
       </div>
     </div>
   );

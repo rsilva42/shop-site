@@ -6,7 +6,7 @@ export default function ItemAdder(props) {
   let quantity = useRef(0);
 
   const addToCart = () => {
-    props.setCart(prevCart => prevCart.concat({id: props.id, size: size.current.value, quantity: quantity.current.value}));
+    props.setCart(prevCart => prevCart.concat({item: props.item, size: size.current.value, quantity: +quantity.current.value}));
   }
 
   return (

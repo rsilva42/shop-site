@@ -1,0 +1,21 @@
+.cart-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-page table {
+    width: 60%;
+    text-align: left;
+}
+
+.cart-page th {
+    padding-bottom: 10px;
+    width: 25%;
+}
+
+.cart-page td {
+    padding-bottom: 8px;
+    padding-right: 8px;
+    width: 25%;
+}
