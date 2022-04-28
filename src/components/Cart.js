@@ -1,16 +1,15 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/cart-page.css';
+import CartItem from './CartItem';
 
 export default function Cart({cart, setCart}) {
-
-  // todo:
-  // checkout button to clear cart and send to thank you page
-  // remove item feature
+  let navigate = useNavigate();
 
   const combineItems = (items) => {
     return JSON.parse(JSON.stringify(items.reduce((newItems, item) => {
       let newItem = newItems.find(newItem => newItem.item.id === item.item.id && newItem.size === item.size);
-      
+
       if (newItem) {
         newItem.quantity += item.quantity;
       }
@@ -18,6 +17,11 @@ export default function Cart({cart, setCart}) {
       return newItem ? newItems : newItems.concat(item);
     }, [])));
   };
+
+  const checkout = () => {
+    setCart([]);
+    navigate('/checkout');
+  }
 
   useEffect(() => {
     setCart(previousCart => combineItems(previousCart));
@@ -36,16 +40,10 @@ export default function Cart({cart, setCart}) {
             </tr>
           </thead>
           <tbody>
-            {cart.map((cartItem, index) => {
-            return <tr key={index} className='cart-item'>
-              <td>{cartItem.item.name.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))}</td>
-              <td>{cartItem.size.replace(/^\w/, (c) => c.toUpperCase())}</td>
-              <td>{cartItem.quantity}</td>
-              <td>${cartItem.item.price * cartItem.quantity} ({cartItem.quantity} X ${cartItem.item.price})</td>
-            </tr>
-            })}
+            {cart.map((cartItem, index) => <CartItem key={index} cart={cart} setCart={setCart} cartItem={cartItem} />)}
           </tbody>
         </table>
+        <button onClick={checkout}>Checkout</button>
     </div>
   )
 }
