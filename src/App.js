@@ -9,8 +9,10 @@ import Contact from './components/Contact';
 import ItemPage from './components/ItemPage';
 import Checkout from './components/Checkout';
 
-const ITEM_STORAGE_KEY = "testItems.json";
-const CART_STORAGE = "cart.roy";
+// Test json to pull item data from
+import TestData from "./testItems.json";
+
+const CART_STORAGE = "cart";
 
 
 export default function Router() {
@@ -18,7 +20,8 @@ export default function Router() {
   const [itemsData, setItemsData] = useState([]);
 
   useEffect(() => {
-    const parsedItems = JSON.parse(localStorage.getItem(ITEM_STORAGE_KEY));
+    // TODO: pull from live database instead
+    const parsedItems = TestData;
     setItemsData(parsedItems);
 
     const parsedCart = JSON.parse(localStorage.getItem(CART_STORAGE));
